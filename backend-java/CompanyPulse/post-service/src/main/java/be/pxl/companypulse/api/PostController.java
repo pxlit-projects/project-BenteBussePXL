@@ -1,6 +1,8 @@
 package be.pxl.companypulse.api;
 
+import be.pxl.companypulse.api.dto.PostDTO;
 import be.pxl.companypulse.api.dto.PostRequest;
+import be.pxl.companypulse.exception.NotFoundException;
 import be.pxl.companypulse.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,5 +34,49 @@ public class PostController {
     @GetMapping
     public ResponseEntity<?> getPosts() {
         return ResponseEntity.ok(postService.getPosts());
+    }
+
+    @GetMapping("/drafts/{author}")
+    public ResponseEntity<?> getDrafts(@PathVariable String author) {
+        return ResponseEntity.ok(postService.getDrafts(author));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getPost(@PathVariable Long id) {
+        try {
+            PostDTO postDTO = postService.getPost(id);
+            return new ResponseEntity<>(postDTO, HttpStatus.OK);
+        } catch (NotFoundException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updatePost(@PathVariable Long id, @RequestBody PostRequest postRequest) {
+        try {
+            postService.updatePost(id, postRequest);
+            return ResponseEntity.noContent().build();
+        } catch (NotFoundException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePost(@PathVariable Long id) {
+        try {
+            postService.deletePost(id);
+            return ResponseEntity.noContent().build();
+        } catch (NotFoundException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }

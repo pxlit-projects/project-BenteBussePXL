@@ -3,21 +3,25 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Post } from '../../../shared/models/post.model';
 import { PostService } from '../../../shared/services/post.service';
 import { AuthService } from '../../../shared/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-add-post',
-  templateUrl: './add-post.component.html',
+  selector: 'app-edit-post',  // Changed from add-post to edit-post
+  templateUrl: './edit-post.component.html',
   standalone: true,
   imports: [ReactiveFormsModule],
-  styleUrls: [  "../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css",
-    './add-post.component.css']
+  styleUrls: [
+    "../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css",
+    './edit-post.component.css'
+  ]
 })
-export class AddPostComponent implements OnInit {
+export class EditPostComponent implements OnInit {
   postForm!: FormGroup;
+  postId: string | null = null;
   postService: PostService = inject(PostService);
   authService: AuthService = inject(AuthService);
   router: Router = inject(Router);
+  route: ActivatedRoute = inject(ActivatedRoute);
 
   constructor(private fb: FormBuilder) {}
 
@@ -26,19 +30,37 @@ export class AddPostComponent implements OnInit {
       title: ['', Validators.required],
       content: ['', Validators.required]
     });
+
+    // Get post ID from route parameters
+    this.postId = this.route.snapshot.paramMap.get('id');
+    if (this.postId) {
+      this.loadPost(this.postId);
+    }
   }
 
-  onAddPost(isDraft : boolean = false): void {
-    if (this.postForm.valid) {
+  loadPost(id: string): void {
+    this.postService.getPostById(id).subscribe(
+      (post: Post) => {
+        this.postForm.patchValue({
+          title: post.title,
+          content: post.content
+        });
+      }
+    );
+  }
+
+  onUpdatePost(isDraft: boolean = false): void {
+    if (this.postForm.valid && this.postId) {
       const { title, content } = this.postForm.value;
-      const newPost = new PostRequest(title, content, this.authService.username.value!, isDraft); 
-      this.postService.addPost(newPost).subscribe(() => {
-        if (!isDraft) {
-          this.router.navigate(['']);
-        }
-        else {
-          this.router.navigate(['drafts']);
-        }
+      const updateRequest = new PostRequest(
+        title,
+        content,
+        this.authService.username.value!,
+        isDraft
+      );
+      
+      this.postService.updatePost(this.postId, updateRequest).subscribe(() => {
+        this.router.navigate(['']);
       });
     } else {
       this.showErrorMessage('Invalid title or content');
@@ -46,7 +68,7 @@ export class AddPostComponent implements OnInit {
   }
 
   onSaveAsDraft(): void {
-    this.onAddPost(true);
+    this.onUpdatePost(true);
   }
 
   private showErrorMessage(message: string): void {

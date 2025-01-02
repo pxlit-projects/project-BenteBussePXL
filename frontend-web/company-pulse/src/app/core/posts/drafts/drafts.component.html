@@ -1,0 +1,18 @@
+<div class="md:container md:mx-auto container mx-auto mt-10">
+    <div class="grid grid-cols-3 gap-6">
+      @if (posts | async; as postsList) {
+        @for (item of postsList; track trackByTitle) {
+          <div class="post-container">
+            <app-post-item [post]="item"></app-post-item>
+            <button 
+              (click)="onEdit(item.id)"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+              Edit
+            </button>
+          </div>
+        }
+      } @else {
+        <p>There are no posts yet.</p>
+      }
+    </div>
+  </div>

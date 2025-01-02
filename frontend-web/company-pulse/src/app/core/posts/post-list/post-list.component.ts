@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostItemComponent } from '../post-item/post-item.component';
 import { Post } from '../../../shared/models/post.model';
+import { PostService } from '../../../shared/services/post.service';
+import { catchError, finalize, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-post-list',
@@ -12,12 +14,28 @@ import { Post } from '../../../shared/models/post.model';
 })
 export class PostListComponent implements OnInit {
   posts!: Post[];
-
+  postService : PostService = inject(PostService);
+  error: string | null = null;
+  loading = false;
+  
   ngOnInit(): void {
-    this.posts = [
-      new Post(1, "Title 1", "Content 1", "Author 1", new Date()),
-      new Post(2, "Title 2", "Content 2", "Author 2", new Date()),
-      new Post(3, "Title 3", "Content 3", "Author 3", new Date())
-    ];
+    this.loading = true;
+    this.postService.getPosts().subscribe({
+      next: (data) => {
+        this.posts = data;
+        
+        // Sort posts by createdAt date (newest first)
+        this.posts.sort((a, b) => {
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        });
+  
+        this.loading = false;
+      },
+      error: (error) => {
+        this.error = 'Failed to load posts';
+        this.loading = false;
+      }
+    });
   }
+  
 }
