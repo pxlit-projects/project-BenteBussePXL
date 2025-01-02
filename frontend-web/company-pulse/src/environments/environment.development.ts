@@ -1,3 +1,5 @@
 export const environment = {
-    postUrl: 'http://localhost:8081/posts'
-};
+    production: false,
+    postUrl: 'http://localhost:8081/posts' 
+  };
+  
