@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('loggedIn');
+    localStorage.setItem('loggedIn', 'false');
     localStorage.removeItem('username');
     localStorage.removeItem('role');
     this.loggedIn.next(false);
@@ -35,6 +35,7 @@ export class AuthService {
   }
 
   private getInitialLoggedInState(): boolean {
+    console.log('Initial logged in state:', localStorage.getItem('loggedIn') === 'true');
     return localStorage.getItem('loggedIn') === 'true';
   }
 }

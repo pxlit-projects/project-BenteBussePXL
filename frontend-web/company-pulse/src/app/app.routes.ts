@@ -6,12 +6,13 @@ import { LoginComponent } from './core/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DraftsComponent } from './core/posts/drafts/drafts.component';
 import { EditPostComponent } from './core/posts/edit-post/edit-post.component';
+import { AdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: '', component: PostListComponent, canActivate: [AuthGuard]},
-    {path: 'add-post', component: AddPostComponent, canActivate: [AuthGuard]},
-    {path: 'drafts', component: DraftsComponent , canActivate: [AuthGuard]},
-    {path: 'edit-post/:id', component: EditPostComponent, canActivate: [AuthGuard]},
+    {path: 'add-post', component: AddPostComponent, canActivate: [AdminGuard]},
+    {path: 'drafts', component: DraftsComponent , canActivate: [AdminGuard]},
+    {path: 'edit-post/:id', component: EditPostComponent, canActivate: [AdminGuard]},
     {path: '**', redirectTo: ''}
 ];

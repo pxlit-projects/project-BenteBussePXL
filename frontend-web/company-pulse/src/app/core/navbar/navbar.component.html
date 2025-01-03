@@ -5,5 +5,11 @@
       <a mat-button href="/" routerLinkActive="active">Posts</a>
       <a mat-button href="/add-post" routerLinkActive="active">Add Post</a>
       <a mat-button href="/drafts" routerLinkActive="active">Drafts</a>
+      @if (authService.loggedIn) {
+        <a mat-button (click)="logout()">Logout</a>
+      }
+      @else {
+        <a mat-button href="/login" routerLinkActive="active">Login</a>
+      }
     </div>
   </mat-toolbar>
