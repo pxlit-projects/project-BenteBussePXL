@@ -3,6 +3,7 @@ package be.pxl.companypulse.service;
 import be.pxl.companypulse.api.dto.PostDTO;
 import be.pxl.companypulse.api.dto.PostRequest;
 import be.pxl.companypulse.domain.Post;
+import be.pxl.companypulse.domain.PostStatus;
 import be.pxl.companypulse.exception.NotFoundException;
 import be.pxl.companypulse.repository.PostRepository;
 import org.aspectj.weaver.ast.Not;
@@ -21,27 +22,27 @@ public class PostService {
         this.postRepository = postRepository;
     }
     public Long createPost(PostRequest postRequest) {
-        Post post = new Post(postRequest.title(), postRequest.content(), postRequest.author(), postRequest.isDraft());
+        Post post = new Post(postRequest.title(), postRequest.content(), postRequest.author(), postRequest.isDraft() ? PostStatus.DRAFT : PostStatus.WAITING_FOR_APPROVAL);
         postRepository.save(post);
         return post.getId();
     }
 
     public List<PostDTO> getPosts() {
         return postRepository.findAll().stream()
-                .filter(post -> !post.IsDraft())
-                .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.IsDraft()))
+                .filter(post -> post.getStatus() == PostStatus.PUBLISHED)
+                .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.getStatus()))
                 .toList();
     }
 
     public List<PostDTO> getDrafts(String author) {
         return postRepository.findByAuthorAndIsDraft(author, true).stream()
-                .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.IsDraft()))
+                .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.getStatus()))
                 .toList();
     }
 
     public PostDTO getPost(Long id) {
         return postRepository.findById(id)
-                .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.IsDraft()))
+                .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.getStatus()))
                 .orElseThrow(() -> new NotFoundException("Post not found"));
     }
 
@@ -52,7 +53,7 @@ public class PostService {
         post.setContent(postRequest.content());
         post.setAuthor(postRequest.author());
         post.setCreatedAt(LocalDateTime.now());
-        post.setIsDraft(postRequest.isDraft());
+        post.setStatus(postRequest.isDraft() ? PostStatus.DRAFT : PostStatus.WAITING_FOR_APPROVAL);
         postRepository.save(post);
     }
 

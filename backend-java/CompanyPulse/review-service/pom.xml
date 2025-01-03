@@ -7,15 +7,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>post-service</artifactId>
+    <artifactId>review-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>post-service</name>
+    <name>review-service</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
     </properties>
 
     <dependencies>

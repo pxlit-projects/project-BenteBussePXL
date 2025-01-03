@@ -19,14 +19,14 @@ public class Post {
     private String content;
     private String author;
     private LocalDateTime createdAt;
-    private Boolean isDraft;
+    private PostStatus status;
 
-    public Post(String title, String content, String author, Boolean isDraft) {
+    public Post(String title, String content, String author, PostStatus status) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.createdAt = LocalDateTime.now();
-        this.isDraft = isDraft;
+        this.status = status;
     }
 
     public Long getId() {
@@ -65,11 +65,11 @@ public class Post {
         this.createdAt = createdAt;
     }
 
-    public Boolean IsDraft() {
-        return isDraft;
+    public PostStatus getStatus() {
+        return status;
     }
 
-    public void setIsDraft(Boolean isDraft) {
-        this.isDraft = isDraft;
+    public void setStatus(PostStatus status) {
+        this.status = status;
     }
 }
