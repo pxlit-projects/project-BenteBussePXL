@@ -10,8 +10,8 @@ import java.util.List;
 
 @FeignClient(name = "post-service")
 public interface PostClient {
-    @GetMapping("/posts/pending")
-    List<PostDTO> getPendingPosts();
+    @GetMapping("/posts/pending/{username}")
+    List<PostDTO> getPendingPosts(@PathVariable String username);
 
     @PostMapping("/posts/{id}/approve")
     void approvePost(@PathVariable String id);

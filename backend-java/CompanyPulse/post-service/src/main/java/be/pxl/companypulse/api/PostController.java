@@ -67,9 +67,9 @@ public class PostController {
         return ResponseEntity.ok(postService.getDrafts(author));
     }
 
-    @GetMapping("/pending")
-    public ResponseEntity<?> getPendingPosts() {
-        return ResponseEntity.ok(postService.getPendingPosts());
+    @GetMapping("/pending/{username}")
+    public ResponseEntity<?> getPendingPosts(@PathVariable String username) {
+        return ResponseEntity.ok(postService.getPendingPosts(username));
     }
 
     @GetMapping("/{id}")

@@ -61,8 +61,9 @@ public class PostService {
         postRepository.deleteById(id);
     }
 
-    public List<PostDTO> getPendingPosts() {
+    public List<PostDTO> getPendingPosts(String username) {
         return postRepository.findByStatus(PostStatus.WAITING_FOR_APPROVAL).stream()
+                .filter(post -> !post.getAuthor().equals(username))
                 .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.getStatus()))
                 .toList();
     }

@@ -31,7 +31,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<PostDTO> getPendingPosts() {
-        return postClient.getPendingPosts();
+    public List<PostDTO> getPendingPosts(String username) {
+        return postClient.getPendingPosts(username);
     }
 }

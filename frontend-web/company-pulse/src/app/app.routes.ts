@@ -7,6 +7,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { DraftsComponent } from './core/posts/drafts/drafts.component';
 import { EditPostComponent } from './core/posts/edit-post/edit-post.component';
 import { AdminGuard } from './guards/admin.guard';
+import { ReviewPostComponent } from './core/reviews/review-post/review-post.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path: 'add-post', component: AddPostComponent, canActivate: [AdminGuard]},
     {path: 'drafts', component: DraftsComponent , canActivate: [AdminGuard]},
     {path: 'edit-post/:id', component: EditPostComponent, canActivate: [AdminGuard]},
+    {path: 'review-posts', component: ReviewPostComponent, canActivate: [AdminGuard]},
     {path: '**', redirectTo: ''}
 ];

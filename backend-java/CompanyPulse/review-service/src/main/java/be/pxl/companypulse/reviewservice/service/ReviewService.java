@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ReviewService {
     void reviewPost(ReviewPostRequest reviewPostRequest);
-    List<PostDTO> getPendingPosts();
+    List<PostDTO> getPendingPosts(String username);
 }

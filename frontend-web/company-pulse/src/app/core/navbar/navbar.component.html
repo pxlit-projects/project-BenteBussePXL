@@ -5,6 +5,7 @@
       <a mat-button href="/" routerLinkActive="active">Posts</a>
       <a mat-button href="/add-post" routerLinkActive="active">Add Post</a>
       <a mat-button href="/drafts" routerLinkActive="active">Drafts</a>
+      <a mat-button href="/review-posts" routerLinkActive="active">Review Posts</a>
       @if (authService.loggedIn) {
         <a mat-button (click)="logout()">Logout</a>
       }
