@@ -1,9 +1,9 @@
 # docker-compose.yml
 version: '3.8'
 services:
-  mysql:
+  mysql-post:
     image: mysql:8.0
-    container_name: companypulse-mysql
+    container_name: companypulse-mysql-post
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: companypulse
@@ -12,7 +12,22 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mysql-post:/var/lib/mysql
+    networks:
+      - companypulse-network
+
+  mysql-review:
+    image: mysql:8.0
+    container_name: companypulse-mysql-review
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: companypulse
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-review:/var/lib/mysql
     networks:
       - companypulse-network
 
@@ -31,7 +46,8 @@ services:
 #      - companypulse-network
 
 volumes:
-  mysql-data:
+  mysql-post:
+  mysql-review:
 
 networks:
   companypulse-network:

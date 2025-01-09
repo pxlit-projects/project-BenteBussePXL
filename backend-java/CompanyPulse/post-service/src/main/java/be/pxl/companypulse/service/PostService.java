@@ -35,7 +35,7 @@ public class PostService {
     }
 
     public List<PostDTO> getDrafts(String author) {
-        return postRepository.findByAuthorAndIsDraft(author, true).stream()
+        return postRepository.findByAuthorAndStatus(author, PostStatus.DRAFT).stream()
                 .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.getStatus()))
                 .toList();
     }
@@ -59,5 +59,25 @@ public class PostService {
 
     public void deletePost(Long id) {
         postRepository.deleteById(id);
+    }
+
+    public List<PostDTO> getPendingPosts() {
+        return postRepository.findByStatus(PostStatus.WAITING_FOR_APPROVAL).stream()
+                .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getAuthor(), post.getCreatedAt(), post.getStatus()))
+                .toList();
+    }
+
+    public void approvePost(Long id) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Post not found"));
+        post.setStatus(PostStatus.PUBLISHED);
+        postRepository.save(post);
+    }
+
+    public void rejectPost(Long id) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Post not found"));
+        post.setStatus(PostStatus.REJECTED);
+        postRepository.save(post);
     }
 }

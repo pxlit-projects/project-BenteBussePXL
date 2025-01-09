@@ -31,6 +31,32 @@ public class PostController {
         }
     }
 
+    @PostMapping("/{id}/approve")
+    public ResponseEntity<?> approvePost(@PathVariable Long id) {
+        try {
+            postService.approvePost(id);
+            return ResponseEntity.ok().build();
+        } catch (NotFoundException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/{id}/reject")
+    public ResponseEntity<?> rejectPost(@PathVariable Long id) {
+        try {
+            postService.rejectPost(id);
+            return ResponseEntity.ok().build();
+        } catch (NotFoundException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @GetMapping
     public ResponseEntity<?> getPosts() {
         return ResponseEntity.ok(postService.getPosts());
@@ -39,6 +65,11 @@ public class PostController {
     @GetMapping("/drafts/{author}")
     public ResponseEntity<?> getDrafts(@PathVariable String author) {
         return ResponseEntity.ok(postService.getDrafts(author));
+    }
+
+    @GetMapping("/pending")
+    public ResponseEntity<?> getPendingPosts() {
+        return ResponseEntity.ok(postService.getPendingPosts());
     }
 
     @GetMapping("/{id}")
@@ -71,7 +102,7 @@ public class PostController {
     public ResponseEntity<?> deletePost(@PathVariable Long id) {
         try {
             postService.deletePost(id);
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.ok().build();
         } catch (NotFoundException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
