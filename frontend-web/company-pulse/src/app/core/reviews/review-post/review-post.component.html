@@ -12,7 +12,7 @@
             <button mat-button color="warn" (click)="reject(post)">Reject</button>
         </mat-card-actions>
         <mat-card-footer>
-            <p>Created At: {{ post.createdAt | date: 'dd/MM/yyyy HH:mm' }}</p>
+            <p>{{ post.createdAt | date: 'dd/MM/yyyy HH:mm' }}</p>
         </mat-card-footer>
     </mat-card>
 }

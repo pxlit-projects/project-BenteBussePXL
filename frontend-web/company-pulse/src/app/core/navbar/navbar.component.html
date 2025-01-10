@@ -5,12 +5,20 @@
     </div>
     
     <div class="navbar-right">
-      <button mat-icon-button aria-label="Favorite button">
-        <mat-icon>favorite</mat-icon>
+      <button mat-icon-button aria-label="Posts" (click)="router.navigate([''])">
+        <mat-icon>home</mat-icon>
       </button>
       
-      <button mat-icon-button aria-label="Share button">
-        <mat-icon>share</mat-icon>
+      <button mat-icon-button aria-label="Add Post" (click)="router.navigate(['add-post'])">
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <button mat-icon-button aria-label="Drafts" (click)="router.navigate(['drafts'])">
+        <mat-icon>drafts</mat-icon>
+      </button>
+
+      <button mat-icon-button aria-label="Review" (click)="router.navigate(['review-posts'])">
+        <mat-icon>rate_review</mat-icon>
       </button>
       
       <button

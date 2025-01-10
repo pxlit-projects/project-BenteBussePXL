@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, HostListener } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../shared/services/notification.service';
 import { Notification } from '../../shared/models/notification.model';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,7 @@ import { Notification } from '../../shared/models/notification.model';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   authService: AuthService = inject(AuthService);
   router: Router = inject(Router);
   notificationService: NotificationService = inject(NotificationService);
@@ -24,9 +25,31 @@ export class NavbarComponent implements OnInit {
   notifications!: Notification[];
   unreadCount: number = 0;
   showNotifications: boolean = false;
+  
+  private refreshInterval: number = 10000; // 30 seconden
+  private refreshSubscription?: Subscription;
 
   ngOnInit(): void {
     this.loadNotifications();
+    this.startAutoRefresh();
+  }
+
+  ngOnDestroy(): void {
+    this.stopAutoRefresh();
+  }
+
+  private startAutoRefresh(): void {
+    // Start periodieke verversing
+    this.refreshSubscription = interval(this.refreshInterval).subscribe(() => {
+      this.loadNotifications();
+    });
+  }
+
+  private stopAutoRefresh(): void {
+    // Stop en cleanup de subscription
+    if (this.refreshSubscription) {
+      this.refreshSubscription.unsubscribe();
+    }
   }
 
   toggleNotifications(): void {
@@ -76,6 +99,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
+    this.stopAutoRefresh(); // Stop verversing bij uitloggen
     this.authService.logout();
     this.router.navigate(['/login']);
   }
