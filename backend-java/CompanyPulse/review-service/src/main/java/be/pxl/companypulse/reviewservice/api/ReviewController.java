@@ -16,10 +16,19 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
-    @GetMapping("{username}")
+    @GetMapping("{username}/pending")
     public ResponseEntity<?> getPendingPosts(@PathVariable String username) {
         try {
             return ResponseEntity.ok(reviewService.getPendingPosts(username));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("{username}/reviewed")
+    public ResponseEntity<?> getReviewedPosts(@PathVariable String username) {
+        try {
+            return ResponseEntity.ok(reviewService.getReviewedPosts(username));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

@@ -12,13 +12,19 @@ export class ReviewService {
   constructor(private http: HttpClient) { }
 
   getPosts() {
-    return this.http.get<Post[]>(`${this.url}/${localStorage.getItem('username')}`, {
-      withCredentials: true // 
+    return this.http.get<Post[]>(`${this.url}/${localStorage.getItem('username')}/pending`, {
+      withCredentials: true 
     });
   }
 
-  updatePost(id: number, approved: boolean) {
-    return this.http.post(`${this.url}`, { postId: id, approved: approved }, {
+  getReviewedPosts() {
+    return this.http.get<Post[]>(`${this.url}/${localStorage.getItem('username')}/reviewed`, {
+      withCredentials: true 
+    });
+  }
+
+  updatePost(id: number, approved: boolean, comment : string, reviewer: string, author: string) {
+    return this.http.post(`${this.url}`, { postId: id, approved: approved, comment: comment, reviewer: reviewer, author: author}, {
       withCredentials: true 
     });
   }

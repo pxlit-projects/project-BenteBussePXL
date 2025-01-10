@@ -1,9 +1,6 @@
 package be.pxl.companypulse.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -19,6 +16,7 @@ public class Post {
     private String content;
     private String author;
     private LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
     private PostStatus status;
 
     public Post(String title, String content, String author, PostStatus status) {
