@@ -12,10 +12,14 @@ export class ReviewService {
   constructor(private http: HttpClient) { }
 
   getPosts() {
-    return this.http.get<Post[]>(this.url + '/' + localStorage.getItem('username'));
+    return this.http.get<Post[]>(`${this.url}/${localStorage.getItem('username')}`, {
+      withCredentials: true // 
+    });
   }
 
   updatePost(id: number, approved: boolean) {
-    return this.http.post(`${this.url}`, { postId: id, approved: approved });
+    return this.http.post(`${this.url}`, { postId: id, approved: approved }, {
+      withCredentials: true 
+    });
   }
 }

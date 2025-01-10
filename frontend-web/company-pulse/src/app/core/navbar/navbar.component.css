@@ -1,14 +1,59 @@
-.logo {
-    font-size: 24px;
-    font-weight: 600;
-  }
-  .spacer {
-    flex: 1 1 auto;
-  }
-  .nav-links {
-    display: flex;
-    gap: 16px;
-  }
-  .active {
-    background: rgba(255, 255, 255, 0.1);
-  }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.notifications-dropdown {
+  position: absolute;
+  top: 64px; /* Height of toolbar */
+  right: 16px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 8px;
+}
+
+.notification-card {
+  margin-bottom: 8px;
+}
+
+.notification-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Add padding to the main content to account for fixed navbar */
+:host {
+  display: block;
+  padding-top: 64px;
+}

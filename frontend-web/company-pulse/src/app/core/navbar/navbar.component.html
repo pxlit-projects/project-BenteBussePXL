@@ -1,16 +1,54 @@
-<mat-toolbar color="primary">
-    <span class="logo">CompanyPulse</span>
-    <span class="spacer"></span>
-    <div class="nav-links">
-      <a mat-button href="/" routerLinkActive="active">Posts</a>
-      <a mat-button href="/add-post" routerLinkActive="active">Add Post</a>
-      <a mat-button href="/drafts" routerLinkActive="active">Drafts</a>
-      <a mat-button href="/review-posts" routerLinkActive="active">Review Posts</a>
+<mat-toolbar color="primary" class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <span class="brand-name">CompanyPulse</span>
+    </div>
+    
+    <div class="navbar-right">
+      <button mat-icon-button aria-label="Favorite button">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      
+      <button mat-icon-button aria-label="Share button">
+        <mat-icon>share</mat-icon>
+      </button>
+      
+      <button
+        mat-icon-button
+        [matBadge]="unreadCount"
+        matBadgeColor="warn"
+        aria-label="Notifications button"
+        (click)="toggleNotifications()"
+      >
+        <mat-icon>notifications</mat-icon>
+      </button>
+      
       @if (authService.loggedIn) {
-        <a mat-button (click)="logout()">Logout</a>
-      }
-      @else {
-        <a mat-button href="/login" routerLinkActive="active">Login</a>
+        <button mat-button (click)="logout()">Logout</button>
+      } @else {
+        <a mat-button href="/login">Login</a>
       }
     </div>
-  </mat-toolbar>
+  </div>
+</mat-toolbar>
+
+@if(showNotifications && notifications.length > 0) {
+  <div class="notifications-dropdown" (clickOutside)="closeNotifications()">
+    @for (notification of notifications; track notification.id) {
+      <mat-card class="notification-card">
+        <mat-card-header>
+          <mat-card-title>{{ notification.subject }}</mat-card-title>
+          <mat-card-subtitle>{{ notification.sender }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ notification.message }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="markAsRead(notification)">Mark as Read</button>
+        </mat-card-actions>
+      </mat-card>
+    } @empty {
+      <p>There are no notifications.</p>
+    }
+  </div>
+}
