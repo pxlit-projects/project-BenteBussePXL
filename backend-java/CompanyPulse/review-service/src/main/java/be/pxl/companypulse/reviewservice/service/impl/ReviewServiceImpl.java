@@ -10,6 +10,7 @@ import be.pxl.companypulse.reviewservice.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -35,9 +36,11 @@ public class ReviewServiceImpl implements ReviewService {
         }
         reviewRepository.save(be.pxl.companypulse.reviewservice.domain.Review.builder()
                 .postId(reviewPostRequest.postId())
+                .postTitle(reviewPostRequest.postTitle())
                 .status(reviewStatus)
                 .comment(reviewPostRequest.comment())
                 .author(reviewPostRequest.author())
+                .reviewedAt(LocalDateTime.now())
                 .reviewer(reviewPostRequest.reviewer())
                 .build());
     }
@@ -49,6 +52,16 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<ReviewDTO> getReviewedPosts(String username) {
-        return reviewRepository.findByAuthor(username);
+        return reviewRepository.findByAuthor(username)
+                .stream().filter(review -> ReviewStatus.valueOf(review.status()) == ReviewStatus.APPROVED || ReviewStatus.valueOf(review.status()) == ReviewStatus.REJECTED)
+                .map(review -> ReviewDTO.builder()
+                        .postId(review.postId())
+                        .postTitle(review.postTitle())
+                        .status(review.status())
+                        .comment(review.comment())
+                        .reviewer(review.reviewer())
+                        .reviewedAt(review.reviewedAt())
+                        .build())
+                .toList();
     }
 }

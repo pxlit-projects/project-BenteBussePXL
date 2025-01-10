@@ -4,11 +4,12 @@ import { Post } from '../../../shared/models/post.model';
 import { ReviewService } from '../../../shared/services/review.service';
 import { MatCard, MatCardActions, MatCardContent, MatCardFooter, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { NotificationService } from '../../../shared/services/notification.service';
 import { Notification } from '../../../shared/models/notification.model';
 import { AuthService } from '../../../shared/services/auth.service';
 import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component';
+import { Review } from '../../../shared/models/review.model';
 
 // review-post.component.ts
 @Component({
@@ -24,12 +25,13 @@ import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component'
     MatCardHeader, 
     MatCardTitle, 
     MatCardSubtitle, 
-    DatePipe
+    DatePipe,
+    CommonModule
   ],
 })
 export class ReviewPostComponent implements OnInit {
   posts!: Post[];
-  reviewedPosts!: Post[];
+  reviewedPosts!: Review[];
   router: Router = inject(Router);
   notificationService: NotificationService = inject(NotificationService);
   authService: AuthService = inject(AuthService);
@@ -46,6 +48,7 @@ export class ReviewPostComponent implements OnInit {
   approve(post: Post) {
     this.reviewService.updatePost(
       post.id,
+      post.title,
       true,
       '', // No comment needed for approval
       this.authService.username.value!,
@@ -73,6 +76,7 @@ export class ReviewPostComponent implements OnInit {
       if (comment) {
         this.reviewService.updatePost(
           post.id,
+          post.title,
           false,
           comment,
           this.authService.username.value!,
@@ -98,7 +102,7 @@ export class ReviewPostComponent implements OnInit {
       this.posts = posts;
     });
     
-    this.reviewService.getReviewedPosts().subscribe((posts: Post[]) => {
+    this.reviewService.getReviewedPosts().subscribe((posts: Review[]) => {
       this.reviewedPosts = posts;
     });
   }
