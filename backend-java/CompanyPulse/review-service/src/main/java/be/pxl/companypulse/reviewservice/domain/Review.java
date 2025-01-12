@@ -21,6 +21,5 @@ public class Review {
     private String reviewer;
     private String author;
     private LocalDateTime reviewedAt;
-    @Enumerated(EnumType.STRING)
     private ReviewStatus status;
 }

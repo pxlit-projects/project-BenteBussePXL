@@ -1,14 +1,15 @@
-<div class="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md">
-    <div class="p-6">
-      <h2 class="font-bold text-xl mb-2">{{ post.title }}</h2>
-      <p class="text-gray-700 text-base">
-        {{ post.author }}
-      </p>
-      <p class="text-gray-700 text-base">
-        {{ post.createdAt | date: 'dd/MM/yyyy HH:mm' }}
-      </p>
-      <button class="bg-green-500 hover:bg-green-700 text-white float-right font-bold mt-4 mb-4 py-2 px-2 rounded">
-        Read More
-      </button>
-    </div>
-</div>
+<mat-card class="max-w-md mx-auto mb-4 padding">
+  <mat-card-header>
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-subtitle>{{ post.author }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- If you want to add content here -->
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="openPostDetail(post)">Read More</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <p class="px-4 py-2">{{ post.createdAt | date: 'dd/MM/yyyy HH:mm' }}</p>
+  </mat-card-footer>
+</mat-card>

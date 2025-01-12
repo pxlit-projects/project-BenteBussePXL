@@ -50,6 +50,12 @@ spring:
             - Path=/notification/**
           filters:
             - RewritePath=/notification/(?<path>.*), /$\{path}
+        - id: comment-service
+          uri: lb://comment-service
+          predicates:
+              - Path=/comment/**
+          filters:
+              - RewritePath=/comment/(?<path>.*), /$\{path}
 
 
 eureka:

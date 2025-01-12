@@ -16,7 +16,7 @@ public class Post {
     private String content;
     private String author;
     private LocalDateTime createdAt;
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private PostStatus status;
 
     public Post(String title, String content, String author, PostStatus status) {

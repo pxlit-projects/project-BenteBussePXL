@@ -1,0 +1,14 @@
+    .comments .comment {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 2%;
+    padding-bottom: 1%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  mat-form-field {
+    margin-bottom: 0;
+  }
+  

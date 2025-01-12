@@ -6,6 +6,9 @@ import { PostService } from '../../../shared/services/post.service';
 import { catchError, finalize, Observable, of } from 'rxjs';
 import { FilterComponent } from '../filter/filter.component';
 import { Filter } from '../../../shared/models/filter.model';
+import { CommentService } from '../../../shared/services/comment.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PostDetailComponent } from '../post-detail/post-detail.component';
 
 @Component({
   selector: 'app-post-list',
@@ -16,8 +19,10 @@ import { Filter } from '../../../shared/models/filter.model';
 })
 export class PostListComponent implements OnInit {
   posts!: Post[];
+  private dialog = inject(MatDialog);
   originalPosts!: Post[]; // Store original posts for filtering
   postService: PostService = inject(PostService);
+  commentService : CommentService = inject(CommentService);
   error: string | null = null;
   loading = false;
 

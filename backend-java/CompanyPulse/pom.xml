@@ -10,6 +10,7 @@
         <module>config-service</module>
         <module>gateway-service</module>
         <module>notification-service</module>
+        <module>comment-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

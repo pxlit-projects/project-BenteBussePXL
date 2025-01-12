@@ -53,7 +53,8 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public List<ReviewDTO> getReviewedPosts(String username) {
         return reviewRepository.findByAuthor(username)
-                .stream().filter(review -> ReviewStatus.valueOf(review.status()) == ReviewStatus.APPROVED || ReviewStatus.valueOf(review.status()) == ReviewStatus.REJECTED)
+                .stream()
+                .filter(review -> review.status()== ReviewStatus.APPROVED || review.status() == ReviewStatus.REJECTED)
                 .map(review -> ReviewDTO.builder()
                         .postId(review.postId())
                         .postTitle(review.postTitle())

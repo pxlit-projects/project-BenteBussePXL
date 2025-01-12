@@ -31,6 +31,21 @@ services:
     networks:
       - companypulse-network
 
+  mysql-comment:
+    image: mysql:8.0
+    container_name: companypulse-mysql-comment
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: companypulse
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql-comment:/var/lib/mysql
+    networks:
+      - companypulse-network
+
   mysql-notification:
     image: mysql:8.0
     container_name: companypulse-mysql-notification
@@ -64,6 +79,7 @@ volumes:
   mysql-post:
   mysql-review:
   mysql-notification:
+  mysql-comment:
 
 networks:
   companypulse-network:
