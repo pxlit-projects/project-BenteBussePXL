@@ -4,15 +4,15 @@ export class Post {
     content: string;
     author: string;
     createdAt: Date;
-    isDaft: boolean;
+    status: string;
 
-    constructor(id: number, title: string, content: string, author: string, createdAt: Date, isDraft: boolean = false) {
+    constructor(id: number, title: string, content: string, author: string, createdAt: Date, status: string) {
       this.id = id;
       this.title = title;
       this.content = content;
       this.author = author;
       this.createdAt = createdAt;
-      this.isDaft = isDraft;
+      this.status = status;
     }
   }
   

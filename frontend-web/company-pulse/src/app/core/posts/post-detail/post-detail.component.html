@@ -2,22 +2,24 @@
     <h1>{{ data.title }}</h1>
     <h2 class="subtitle">{{ data.author }} - {{ data.createdAt | date: 'dd/MM/yyyy HH:mm' }}</h2>
     <p class="content">{{ data.content }}</p>
-    
-    <h2>Comments</h2>
-    <div class="comments">
-      @for(item of comments; track item.id) {
-        <app-comment-item [comment]="item"></app-comment-item>
-      }
-    </div>
-    <hr>
-    <form [formGroup]="postForm">
-        <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Your Comment</mat-label>
-        <textarea placeholder="Add a comment" matInput formControlName="comment" name="commentContent" required></textarea>
-        </mat-form-field>
 
-        <button mat-raised-button (click)="addComment()" color="primary" type="submit">Post Comment</button>
-    </form>
+    @if (data.status != "DRAFT") {
+        <h2>Comments</h2>
+        <div class="comments">
+        @for(item of comments; track item.id) {
+            <app-comment-item [comment]="item"></app-comment-item>
+        }
+        </div>
+        <hr>
+        <form [formGroup]="postForm">
+            <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Your Comment</mat-label>
+            <textarea placeholder="Add a comment" matInput formControlName="comment" name="commentContent" required></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button (click)="addComment()" color="primary" type="submit">Post Comment</button>
+        </form>
+    }
   </mat-dialog-content>
   
   <mat-dialog-actions align="end">

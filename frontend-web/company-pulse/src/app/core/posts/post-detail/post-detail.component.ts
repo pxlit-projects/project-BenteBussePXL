@@ -31,7 +31,7 @@ export class PostDetailComponent implements OnInit {
     this.postForm = this.fb.group({
       comment: ['', Validators.required],
     });
-  
+    console.log(this.data);
     // Listen for comment deletion
     this.commentService.commentChanged.subscribe((commentId) => {
       this.comments = this.comments.filter((comment) => comment.id !== commentId);
