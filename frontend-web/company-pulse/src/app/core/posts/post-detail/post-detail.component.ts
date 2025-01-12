@@ -29,9 +29,15 @@ export class PostDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.postForm = this.fb.group({
-      comment: ['', Validators.required]
+      comment: ['', Validators.required],
+    });
+  
+    // Listen for comment deletion
+    this.commentService.commentChanged.subscribe((commentId) => {
+      this.comments = this.comments.filter((comment) => comment.id !== commentId);
     });
   }
+  
 
   addComment(): void {
     if (this.postForm && this.authService.username.value) {

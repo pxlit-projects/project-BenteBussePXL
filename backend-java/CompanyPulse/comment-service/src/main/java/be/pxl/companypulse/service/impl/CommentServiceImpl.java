@@ -2,6 +2,7 @@ package be.pxl.companypulse.service.impl;
 
 import be.pxl.companypulse.api.dto.CommentDTO;
 import be.pxl.companypulse.api.dto.CommentRequest;
+import be.pxl.companypulse.api.dto.CommentUpdateRequest;
 import be.pxl.companypulse.domain.Comment;
 import be.pxl.companypulse.repository.CommentRepository;
 import be.pxl.companypulse.service.CommentService;
@@ -43,5 +44,18 @@ public class CommentServiceImpl implements CommentService {
                         .isEdited(comment.isEdited())
                         .build())
                 .toList();
+    }
+
+    @Override
+    public void updateComment(Long id, CommentUpdateRequest commentRequest) {
+        Comment comment = this.commentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Comment not found"));
+        comment.edit(commentRequest.content());
+        this.commentRepository.save(comment);
+    }
+
+    @Override
+    public void deleteComment(Long id) {
+        this.commentRepository.deleteById(id);
     }
 }

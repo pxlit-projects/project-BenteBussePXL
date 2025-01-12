@@ -1,4 +1,26 @@
 <div class="comment">
-    <p><strong>{{ comment.author }}</strong> - {{ comment.createdAt | relativeTime }}</p>
-    <p>{{ comment.content }}</p>
-</div>
+    <p>
+      <strong>{{ comment.author }}</strong> - {{ comment.createdAt | relativeTime }} @if (comment.isEdited) {
+        <span class="text-sm">(edited)</span>
+      }
+    </p>
+  
+    <!-- Edit mode -->
+     @if (isEditing) {
+        <form [formGroup]="commentForm">
+            <textarea formControlName="content" class="form-control"></textarea>
+            <button mat-button color="primary" (click)="saveEdit()"><mat-icon>save</mat-icon></button>
+            <button mat-button color="warn" (click)="cancelEdit()"><mat-icon>cancel</mat-icon></button>
+        </form>
+     }
+  
+    <!-- Display mode -->
+    @if (!isEditing) {
+        <p>{{ comment.content }}</p>
+      @if (isAuthor()) {
+        <button mat-button (click)="enableEdit()"><mat-icon>edit</mat-icon></button>
+        <button mat-button color="warn" (click)="deleteComment()"><mat-icon>delete</mat-icon></button>
+      }
+     }
+  </div>
+  
