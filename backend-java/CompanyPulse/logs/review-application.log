@@ -1125,3 +1125,4 @@ This generated password is for development use only. Your security configuration
 2025-01-12 20:40:27,899 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-8] Entered method getPendingPosts
 2025-01-12 20:40:27,900 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-9] Entered method getReviewedPosts
 2025-01-12 20:41:59,915 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 20:46:59,922 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration

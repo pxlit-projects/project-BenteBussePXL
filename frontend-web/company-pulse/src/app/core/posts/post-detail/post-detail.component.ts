@@ -7,7 +7,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { CommentService } from '../../../shared/services/comment.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/services/auth.service';
-import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatFormFieldControl, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-post-detail',

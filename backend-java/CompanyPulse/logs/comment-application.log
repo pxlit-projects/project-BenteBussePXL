@@ -1351,3 +1351,4 @@ This generated password is for development use only. Your security configuration
 2025-01-12 20:37:20,316 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] Getting all instance registry info from the eureka server
 2025-01-12 20:37:20,328 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] The response status is 200
 2025-01-12 20:41:50,006 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 20:46:50,010 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration

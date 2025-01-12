@@ -1,0 +1,6 @@
+services:
+  copany-pulse-frontend:
+    build: .
+    container_name: company-pulse-frontend-image
+    ports:
+      - "80:80"
