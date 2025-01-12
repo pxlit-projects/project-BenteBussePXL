@@ -4,7 +4,7 @@ import { Router } from '@angular/router';  // Add this import
 import { AuthService } from '../../../shared/services/auth.service';
 import { PostService } from '../../../shared/services/post.service';
 import { Post } from '../../../shared/models/post.model';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { PostItemComponent } from '../post-item/post-item.component';
 
 @Component({
@@ -25,7 +25,11 @@ export class DraftsComponent implements OnInit {
   }
 
   getDrafts() {
-    this.posts = this.postService.getDraftsByAuthor(this.authService.username.value!);
+    this.posts = this.postService.getDraftsByAuthor(this.authService.username.value!).pipe(
+      map(posts => [...posts].sort((a, b) => 
+         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      ))
+    );  
   }
 
   // Update to use ID instead of title for tracking

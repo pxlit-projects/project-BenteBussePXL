@@ -10,6 +10,7 @@ import { Notification } from '../../../shared/models/notification.model';
 import { AuthService } from '../../../shared/services/auth.service';
 import { RejectDialogComponent } from '../reject-dialog/reject-dialog.component';
 import { Review } from '../../../shared/models/review.model';
+import { map } from 'rxjs';
 
 // review-post.component.ts
 @Component({
@@ -98,13 +99,17 @@ export class ReviewPostComponent implements OnInit {
   }
 
   loadPosts() {
-    this.reviewService.getPosts().subscribe((posts: Post[]) => {
-      this.posts = posts;
-    });
-    
-    this.reviewService.getReviewedPosts().subscribe((posts: Review[]) => {
-      this.reviewedPosts = posts;
-    });
+    this.reviewService.getPosts().pipe(
+      map(posts => [...posts].sort((a, b) => 
+         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      ))
+    ).subscribe(posts => this.posts = posts); 
+
+    this.reviewService.getReviewedPosts().pipe(
+      map(posts => [...posts].sort((a, b) => 
+         new Date(b.reviewedAt).getTime() - new Date(a.reviewedAt).getTime()
+      ))
+    ).subscribe(posts => this.reviewedPosts = posts);
   }
 }
 

@@ -3,7 +3,7 @@
     <h2 class="subtitle">{{ data.author }} - {{ data.createdAt | date: 'dd/MM/yyyy HH:mm' }}</h2>
     <p class="content">{{ data.content }}</p>
 
-    @if (data.status != "DRAFT") {
+    @if (data.status != "DRAFT" && data.status != "REJECTED") {
         <h2>Comments</h2>
         <div class="comments">
         @for(item of comments; track item.id) {

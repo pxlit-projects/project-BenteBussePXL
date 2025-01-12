@@ -51,9 +51,11 @@
         <mat-card-content>
           <p>{{ notification.message }}</p>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-button (click)="markAsRead(notification)">Mark as Read</button>
-        </mat-card-actions>
+        @if (!notification.isRead) {
+          <mat-card-actions>
+            <button mat-button (click)="markAsRead(notification)">Mark as Read</button>
+          </mat-card-actions>
+        }
       </mat-card>
     } @empty {
       <p>There are no notifications.</p>
