@@ -20,3 +20,47 @@
 2025-01-12 19:48:31,533 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-10] Adding property source: Config resource 'class path resource [review-service.properties]' via location 'optional:classpath:/'
 2025-01-12 19:48:41,612 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-7] Adding property source: Config resource 'class path resource [notification-service.properties]' via location 'optional:classpath:/'
 2025-01-12 19:48:57,330 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-2] Adding property source: Config resource 'class path resource [gateway-service.yml]' via location 'optional:classpath:/'
+2025-01-12 20:33:55,303 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2025-01-12 20:33:55,345 INFO o.s.b.StartupInfoLogger [main] Starting ConfigServiceApplication using Java 17.0.5 with PID 28832 (C:\Users\12201797\Documents\PXLTEMP\ProjectJava\project-BenteBussePXL\backend-java\CompanyPulse\config-service\target\classes started by 12201797 in C:\Users\12201797\Documents\PXLTEMP\ProjectJava\project-BenteBussePXL\backend-java\CompanyPulse)
+2025-01-12 20:33:55,346 INFO o.s.b.SpringApplication [main] The following 1 profile is active: "native"
+2025-01-12 20:33:55,947 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=579587c2-e189-3bb1-8ab3-4aff7765ea6f
+2025-01-12 20:33:56,119 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port 8087 (http)
+2025-01-12 20:33:56,126 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8087"]
+2025-01-12 20:33:56,128 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2025-01-12 20:33:56,128 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-12 20:33:56,168 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2025-01-12 20:33:56,168 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 793 ms
+2025-01-12 20:33:57,103 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8087"]
+2025-01-12 20:33:57,124 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port 8087 (http) with context path '/'
+2025-01-12 20:33:57,827 INFO o.s.b.StartupInfoLogger [main] Started ConfigServiceApplication in 4.03 seconds (process running for 4.55)
+2025-01-12 20:33:59,238 INFO o.a.j.l.DirectJDKLog [http-nio-8087-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-12 20:33:59,238 INFO o.s.w.s.FrameworkServlet [http-nio-8087-exec-1] Initializing Servlet 'dispatcherServlet'
+2025-01-12 20:33:59,239 INFO o.s.w.s.FrameworkServlet [http-nio-8087-exec-1] Completed initialization in 1 ms
+2025-01-12 20:33:59,286 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-1] Adding property source: Config resource 'class path resource [discovery-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:34:05,294 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-3] Adding property source: Config resource 'class path resource [comment-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:34:13,316 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-2] Adding property source: Config resource 'class path resource [post-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:34:20,420 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-4] Adding property source: Config resource 'class path resource [review-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:34:33,600 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-5] Adding property source: Config resource 'class path resource [notification-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:34:40,631 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-6] Adding property source: Config resource 'class path resource [gateway-service.yml]' via location 'optional:classpath:/'
+2025-01-12 20:36:30,209 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2025-01-12 20:36:30,243 INFO o.s.b.StartupInfoLogger [main] Starting ConfigServiceApplication using Java 17.0.5 with PID 3372 (C:\Users\12201797\Documents\PXLTEMP\ProjectJava\project-BenteBussePXL\backend-java\CompanyPulse\config-service\target\classes started by 12201797 in C:\Users\12201797\Documents\PXLTEMP\ProjectJava\project-BenteBussePXL\backend-java\CompanyPulse)
+2025-01-12 20:36:30,243 INFO o.s.b.SpringApplication [main] The following 1 profile is active: "native"
+2025-01-12 20:36:30,770 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=579587c2-e189-3bb1-8ab3-4aff7765ea6f
+2025-01-12 20:36:30,938 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port 8087 (http)
+2025-01-12 20:36:30,944 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8087"]
+2025-01-12 20:36:30,947 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2025-01-12 20:36:30,947 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-12 20:36:30,990 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2025-01-12 20:36:30,991 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 720 ms
+2025-01-12 20:36:31,865 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8087"]
+2025-01-12 20:36:31,878 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port 8087 (http) with context path '/'
+2025-01-12 20:36:32,375 INFO o.s.b.StartupInfoLogger [main] Started ConfigServiceApplication in 3.924 seconds (process running for 4.378)
+2025-01-12 20:36:37,766 INFO o.a.j.l.DirectJDKLog [http-nio-8087-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-12 20:36:37,766 INFO o.s.w.s.FrameworkServlet [http-nio-8087-exec-1] Initializing Servlet 'dispatcherServlet'
+2025-01-12 20:36:37,767 INFO o.s.w.s.FrameworkServlet [http-nio-8087-exec-1] Completed initialization in 1 ms
+2025-01-12 20:36:37,810 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-1] Adding property source: Config resource 'class path resource [discovery-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:36:43,490 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-3] Adding property source: Config resource 'class path resource [comment-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:36:49,221 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-2] Adding property source: Config resource 'class path resource [post-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:36:54,127 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-4] Adding property source: Config resource 'class path resource [review-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:37:00,756 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-8] Adding property source: Config resource 'class path resource [notification-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:37:07,989 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-6] Adding property source: Config resource 'class path resource [gateway-service.yml]' via location 'optional:classpath:/'

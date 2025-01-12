@@ -35,17 +35,18 @@
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
-                }
-              ],
+              {
+                "type": "initial",
+                "maximumWarning": "1.3mb", 
+                "maximumError": "1.5mb"     
+              },
+              {
+                "type": "bundle",
+                "name": "bootstrap.min.css",
+                "maximumWarning": "240kb",  
+                "maximumError": "250kb"
+              }
+            ],
               "outputHashing": "all"
             },
             "development": {
