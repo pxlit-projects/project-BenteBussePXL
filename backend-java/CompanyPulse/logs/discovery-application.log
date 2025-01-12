@@ -47,3 +47,4 @@
 2025-01-12 19:49:01,231 INFO c.n.e.r.AbstractInstanceRegistry [http-nio-8061-exec-8] Registered instance GATEWAY-SERVICE/169.254.43.111:gateway-service:8000 with status UP (replication=false)
 2025-01-12 19:49:19,846 INFO c.n.e.r.AbstractInstanceRegistry$EvictionTask [Eureka-EvictionTimer] Running the evict task with compensationTime 0ms
 2025-01-12 19:50:19,847 INFO c.n.e.r.AbstractInstanceRegistry$EvictionTask [Eureka-EvictionTimer] Running the evict task with compensationTime 0ms
+2025-01-12 19:51:19,848 INFO c.n.e.r.AbstractInstanceRegistry$EvictionTask [Eureka-EvictionTimer] Running the evict task with compensationTime 1ms

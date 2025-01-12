@@ -18,7 +18,7 @@
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- File rollover pattern -->
-            <fileNamePattern>logs/archived/application-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>logs/archived/post/application-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- Maximum file size before rollover -->
             <maxFileSize>10MB</maxFileSize>
             <!-- Retain logs for 30 days -->

@@ -11,14 +11,14 @@
 
     <!-- Rolling file appender -->
     <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/config-application.log</file>
+        <file>logs/gateway-application.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d %p %C{1} [%t] %m%n</pattern>
         </encoder>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- File rollover pattern -->
-            <fileNamePattern>logs/archived/config/application-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>logs/archived/gateway/application-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- Maximum file size before rollover -->
             <maxFileSize>10MB</maxFileSize>
             <!-- Retain logs for 30 days -->

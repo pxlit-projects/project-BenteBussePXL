@@ -21,6 +21,7 @@ public class NotificationService {
     }
 
     public void sendMessage(NotificationRequest notificationRequest) {
+        log.info("Entered method sendMessage");
         Notification notification = Notification.builder()
                 .subject(notificationRequest.subject())
                 .message(notificationRequest.message())
@@ -31,9 +32,11 @@ public class NotificationService {
                 .isRead(false)
                 .build();
         notificationRepository.save(notification);
+        log.info("Message sent to: {}", notificationRequest.receiver());
     }
 
     public List<NotificationDTO> getNotifications(String receiver) {
+        log.info("Entered method getNotifications");
         return notificationRepository.findByReceiver(receiver)
                 .stream()
                 .map(notification -> NotificationDTO.builder()
@@ -49,9 +52,14 @@ public class NotificationService {
     }
 
     public void markAsRead(long id) {
+        log.info("Entered method markAsRead with id: {}", id);
         Notification notification = notificationRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Notification not found"));
+                .orElseThrow(() -> {
+                    log.error("Notification not found with id: {}", id);
+                    return new NotFoundException("Notification not found");
+                });
         notification.setRead();
         notificationRepository.save(notification);
+        log.info("Notification marked as read with id: {}", id);
     }
 }

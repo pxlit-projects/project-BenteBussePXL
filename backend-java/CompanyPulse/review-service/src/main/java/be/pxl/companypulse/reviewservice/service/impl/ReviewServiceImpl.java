@@ -7,6 +7,7 @@ import be.pxl.companypulse.reviewservice.client.PostClient;
 import be.pxl.companypulse.reviewservice.domain.ReviewStatus;
 import be.pxl.companypulse.reviewservice.repository.ReviewRepository;
 import be.pxl.companypulse.reviewservice.service.ReviewService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
     private final PostClient postClient;
@@ -26,13 +28,16 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public void reviewPost(ReviewPostRequest reviewPostRequest) {
+        log.info("Entered method reviewPost");
         ReviewStatus reviewStatus;
         if (reviewPostRequest.approved()) {
             postClient.approvePost(reviewPostRequest.postId().toString());
             reviewStatus = ReviewStatus.APPROVED;
+            log.info("Post approved with id: {}", reviewPostRequest.postId());
         } else {
             postClient.rejectPost(reviewPostRequest.postId().toString());
             reviewStatus = ReviewStatus.REJECTED;
+            log.info("Post rejected with id: {}", reviewPostRequest.postId());
         }
         reviewRepository.save(be.pxl.companypulse.reviewservice.domain.Review.builder()
                 .postId(reviewPostRequest.postId())
@@ -43,15 +48,18 @@ public class ReviewServiceImpl implements ReviewService {
                 .reviewedAt(LocalDateTime.now())
                 .reviewer(reviewPostRequest.reviewer())
                 .build());
+        log.info("Review saved for post with id: {}", reviewPostRequest.postId());
     }
 
     @Override
     public List<PostDTO> getPendingPosts(String username) {
+        log.info("Entered method getPendingPosts");
         return postClient.getPendingPosts(username);
     }
 
     @Override
     public List<ReviewDTO> getReviewedPosts(String username) {
+        log.info("Entered method getReviewedPosts");
         return reviewRepository.findByAuthor(username)
                 .stream()
                 .filter(review -> review.status()== ReviewStatus.APPROVED || review.status() == ReviewStatus.REJECTED)
