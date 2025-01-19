@@ -39,14 +39,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   private startAutoRefresh(): void {
-    // Start periodieke verversing
     this.refreshSubscription = interval(this.refreshInterval).subscribe(() => {
       this.loadNotifications();
     });
   }
 
   private stopAutoRefresh(): void {
-    // Stop en cleanup de subscription
     if (this.refreshSubscription) {
       this.refreshSubscription.unsubscribe();
     }

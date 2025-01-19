@@ -1126,3 +1126,24 @@ This generated password is for development use only. Your security configuration
 2025-01-12 20:40:27,900 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-9] Entered method getReviewedPosts
 2025-01-12 20:41:59,915 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
 2025-01-12 20:46:59,922 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 20:51:59,931 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 20:56:59,940 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 20:57:39,348 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-2] Entered method getPendingPosts
+2025-01-12 20:57:39,353 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-3] Entered method getReviewedPosts
+2025-01-12 20:58:13,028 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-5] Entered method getPendingPosts
+2025-01-12 20:58:13,028 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-4] Entered method getReviewedPosts
+2025-01-12 20:59:25,162 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-6] Entered method getPendingPosts
+2025-01-12 20:59:25,162 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-9] Entered method getReviewedPosts
+2025-01-12 20:59:31,172 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-8] Entered method getPendingPosts
+2025-01-12 20:59:31,175 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-1] Entered method getReviewedPosts
+2025-01-12 21:00:48,988 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-3] Entered method getPendingPosts
+2025-01-12 21:00:48,991 INFO b.p.c.r.s.i.ReviewServiceImpl [http-nio-8082-exec-2] Entered method getReviewedPosts
+2025-01-12 21:01:59,954 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 21:06:59,960 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 21:11:59,963 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 21:16:59,972 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 21:21:59,987 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 21:26:59,992 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 21:31:59,997 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 21:37:00,001 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-12 21:42:54,683 WARN c.z.h.p.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m26s714ms574µs500ns).

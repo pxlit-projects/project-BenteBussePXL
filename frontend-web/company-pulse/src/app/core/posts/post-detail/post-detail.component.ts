@@ -8,13 +8,14 @@ import { CommentService } from '../../../shared/services/comment.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/services/auth.service';
 import { MatFormFieldControl, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.css'],
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule, CommentItemComponent, DatePipe, CommonModule, MatLabel, MatFormFieldModule, ReactiveFormsModule]
+  imports: [MatDialogModule, MatInputModule, CommonModule, MatButtonModule, CommentItemComponent, DatePipe, CommonModule, MatLabel, MatFormFieldModule, ReactiveFormsModule]
 })
 export class PostDetailComponent implements OnInit {
   // Using the new input() syntax instead of constructor injection
@@ -38,12 +39,12 @@ export class PostDetailComponent implements OnInit {
   
 
   addComment(): void {
-    if (this.postForm && this.authService.username.value) {
+    if (this.postForm && this.authService.loggedIn) {
       const { comment } = this.postForm.value;
       const newCommentRequest: CommentRequest = new CommentRequest(
         this.data.id,
         comment,
-        this.authService.username.value
+        this.authService.username.value!
       );
   
       this.commentService.addComment(newCommentRequest).subscribe({

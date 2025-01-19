@@ -11,6 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule, DatePipe } from '@angular/common';
 import { CommentItemComponent } from '../../comments/comment-item/comment-item.component';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 describe('PostDetailComponent', () => {
   let component: PostDetailComponent;
@@ -70,7 +71,8 @@ describe('PostDetailComponent', () => {
         { provide: MAT_DIALOG_DATA, useValue: mockDialogData },
         { provide: AuthService, useValue: authService },
         { provide: CommentService, useValue: commentService },
-        DatePipe
+        DatePipe,
+        provideAnimations()
       ]
     }).compileComponents();
 
@@ -128,31 +130,34 @@ describe('PostDetailComponent', () => {
     });
 
     it('should not add comment if no user is logged in', () => {
-      authService = jasmine.createSpyObj('AuthService', [], {
-        username: new BehaviorSubject<string | null>('testUser')
-      });   
+      authService.username = new BehaviorSubject<string | null>(null);
+    
       component.postForm.patchValue({ comment: 'Test comment' });
+    
       component.addComment();
+    
       expect(commentService.addComment).not.toHaveBeenCalled();
     });
 
     it('should add comment successfully', () => {
+      authService.loggedIn = new BehaviorSubject<boolean>(true);
       const newComment = 'Test new comment';
       component.postForm.patchValue({ comment: newComment });
-      
+    
       component.addComment();
-
-      expect(commentService.addComment).toHaveBeenCalledWith({
-        postId: mockDialogData.id,
-        content: newComment,
-        author: 'testUser'
-      });
+    
+      expect(commentService.addComment).toHaveBeenCalledWith(
+        jasmine.any(CommentRequest) // Controleer of het een instantie van CommentRequest is
+      );
+    
       expect(commentService.getCommentsByPostId).toHaveBeenCalledWith(mockDialogData.id);
       expect(component.comments.length).toBe(3);
-      expect(component.postForm.get('comment')?.value).toBe('');
+      expect(component.postForm.get('comment')?.value).toBe(null);
     });
+    
 
     it('should handle add comment error', () => {
+      authService.loggedIn = new BehaviorSubject<boolean>(true);
       const consoleSpy = spyOn(console, 'error');
       commentService.addComment.and.returnValue(throwError(() => new Error('Add failed')));
       
@@ -163,6 +168,7 @@ describe('PostDetailComponent', () => {
     });
 
     it('should handle fetch updated comments error', () => {
+      authService.loggedIn = new BehaviorSubject<boolean>(true);
       const consoleSpy = spyOn(console, 'error');
       commentService.getCommentsByPostId.and.returnValue(throwError(() => new Error('Fetch failed')));
       

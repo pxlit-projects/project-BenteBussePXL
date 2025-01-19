@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EditPostComponent } from './edit-post.component';
+import { EditPostComponent, PostRequest } from './edit-post.component';
 import { PostService } from '../../../shared/services/post.service';
 import { AuthService } from '../../../shared/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,9 +17,19 @@ describe('EditPostComponent', () => {
 
   beforeEach(async () => {
     const postServiceSpy = jasmine.createSpyObj('PostService', ['getPostById', 'updatePost']);
+    postServiceSpy.getPostById.and.returnValue(of({
+      id: 1,
+      title: 'Mock Title',
+      content: 'Mock Content',
+      author: 'Mock Author',
+      createdAt: new Date(),
+      status: 'Draft'
+    }));
+  
     const authServiceSpy = jasmine.createSpyObj('AuthService', [], {
       username: new BehaviorSubject<string | null>('testUser')
     });
+  
     const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
     const activatedRouteStub = {
       snapshot: {
@@ -28,7 +38,7 @@ describe('EditPostComponent', () => {
         }
       }
     };
-
+  
     await TestBed.configureTestingModule({
       imports: [
         ReactiveFormsModule,
@@ -42,14 +52,14 @@ describe('EditPostComponent', () => {
         { provide: ActivatedRoute, useValue: activatedRouteStub }
       ]
     }).compileComponents();
-
+  
     fixture = TestBed.createComponent(EditPostComponent);
     component = fixture.componentInstance;
     postService = TestBed.inject(PostService) as jasmine.SpyObj<PostService>;
     authService = TestBed.inject(AuthService) as jasmine.SpyObj<AuthService>;
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
     route = TestBed.inject(ActivatedRoute);
-  });
+  });  
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -57,8 +67,8 @@ describe('EditPostComponent', () => {
 
   it('should initialize form with empty values', () => {
     component.ngOnInit();
-    expect(component.postForm.get('title')?.value).toBe('');
-    expect(component.postForm.get('content')?.value).toBe('');
+    expect(component.postForm.get('title')?.value).toBe('Mock Title');
+    expect(component.postForm.get('content')?.value).toBe('Mock Content');
   });
 
   it('should load post data on init when postId exists', () => {
@@ -82,12 +92,7 @@ describe('EditPostComponent', () => {
   });
 
   it('should update post and navigate on valid form submission', () => {
-    const mockPost = {
-      title: 'Updated Post',
-      content: 'Updated Content',
-      author: 'testUser',
-      isDraft: false
-    };
+    const mockPost = new PostRequest('Updated Post', 'Updated Content', 'testUser', false);
 
     component.ngOnInit();
     component.postForm.setValue({
@@ -117,13 +122,7 @@ describe('EditPostComponent', () => {
   });
 
   it('should save post as draft', () => {
-    const mockPost = {
-      title: 'Draft Post',
-      content: 'Draft Content',
-      author: 'testUser',
-      isDraft: true
-    };
-
+    const mockPost = new PostRequest('Draft Post', 'Draft Content', 'testUser', true);
     component.ngOnInit();
     component.postForm.setValue({
       title: mockPost.title,

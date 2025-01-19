@@ -64,3 +64,6 @@
 2025-01-12 20:36:54,127 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-4] Adding property source: Config resource 'class path resource [review-service.properties]' via location 'optional:classpath:/'
 2025-01-12 20:37:00,756 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-8] Adding property source: Config resource 'class path resource [notification-service.properties]' via location 'optional:classpath:/'
 2025-01-12 20:37:07,989 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-6] Adding property source: Config resource 'class path resource [gateway-service.yml]' via location 'optional:classpath:/'
+2025-01-12 20:51:38,369 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-2] Adding property source: Config resource 'class path resource [post-service.properties]' via location 'optional:classpath:/'
+2025-01-12 20:56:27,117 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-8] Adding property source: Config resource 'class path resource [post-service.properties]' via location 'optional:classpath:/'
+2025-01-12 21:04:05,250 INFO o.s.c.c.s.e.NativeEnvironmentRepository [http-nio-8087-exec-7] Adding property source: Config resource 'class path resource [post-service.properties]' via location 'optional:classpath:/'

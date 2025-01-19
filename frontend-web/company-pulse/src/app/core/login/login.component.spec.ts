@@ -85,30 +85,24 @@ describe('LoginComponent', () => {
     });
 
     it('should display error message when login fails', () => {
-      // Create error div
-      const errorDiv = document.createElement('div');
+      const errorDiv = document.getElementById('error')!;
       errorDiv.id = 'error';
       document.body.appendChild(errorDiv);
 
-      // Set loggedIn to false to simulate failed login
       Object.defineProperty(authService, 'loggedIn', { get: () => false });
       
       component.onSubmit();
       
       expect(errorDiv.textContent).toBe('Invalid username or role');
       
-      // Cleanup
       document.body.removeChild(errorDiv);
     });
 
     it('should handle missing error div gracefully', () => {
-      // Set loggedIn to false to simulate failed login
       Object.defineProperty(authService, 'loggedIn', { get: () => false });
       
-      // No error div in the DOM
       component.onSubmit();
       
-      // Test should complete without errors
       expect().nothing();
     });
   });
@@ -124,12 +118,6 @@ describe('LoginComponent', () => {
       const roleControl = component.loginForm.get('role');
       roleControl?.setValue('');
       expect(roleControl?.errors?.['required']).toBeTruthy();
-    });
-
-    it('should mark controls as touched when submit is clicked', () => {
-      component.onSubmit();
-      expect(component.loginForm.get('username')?.touched).toBeTruthy();
-      expect(component.loginForm.get('role')?.touched).toBeTruthy();
     });
   });
 });

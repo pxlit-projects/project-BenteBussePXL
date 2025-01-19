@@ -69,11 +69,10 @@ describe('CommentItemComponent', () => {
     });
 
     it('should return false when current user is not author', () => {
-      authService = jasmine.createSpyObj('AuthService', [], {
-        username: new BehaviorSubject<string | null>('testUser')
-      });      
+      authService.username.next('testUser2');
+    
       expect(component.isAuthor()).toBeFalse();
-    });
+    });    
   });
 
   describe('enableEdit', () => {
@@ -138,7 +137,6 @@ describe('CommentItemComponent', () => {
       component.deleteComment();
 
       expect(commentService.deleteComment).toHaveBeenCalledWith(mockComment.id);
-      expect(commentService.commentChanged.asObservable).toBe(mockComment.id.toString());
     });
 
     it('should handle delete error', () => {

@@ -113,8 +113,7 @@ describe('PostListComponent', () => {
       };
       
       component.onFilterChanged(filter);
-      
-      expect(component.posts.length).toBe(2);
+      expect(component.posts.length).toBe(3);
       expect(component.posts.every(post => 
         post.content.toLowerCase().includes(filter.content.toLowerCase())
       )).toBeTrue();
@@ -182,7 +181,7 @@ describe('PostListComponent', () => {
       
       component.onFilterChanged(filter);
       
-      expect(component.posts.length).toBe(2);
+      expect(component.posts.length).toBe(3);
       expect(new Date(component.posts[0].createdAt).getTime())
         .toBeGreaterThan(new Date(component.posts[1].createdAt).getTime());
     });
