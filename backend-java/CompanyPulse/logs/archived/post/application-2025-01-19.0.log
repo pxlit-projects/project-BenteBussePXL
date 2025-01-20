@@ -1,0 +1,308 @@
+2025-01-19 23:46:11,632 INFO o.s.b.StartupInfoLogger [main] Starting PostServiceApplication using Java 17.0.5 with PID 22084 (C:\Users\12201797\Documents\PXLTEMP\ProjectJava\project-BenteBussePXL\backend-java\CompanyPulse\post-service\target\classes started by 12201797 in C:\Users\12201797\Documents\PXLTEMP\ProjectJava\project-BenteBussePXL\backend-java\CompanyPulse)
+2025-01-19 23:46:11,636 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2025-01-19 23:46:11,664 INFO o.s.b.l.DeferredLog [main] Fetching config from server at : http://localhost:8087/
+2025-01-19 23:46:11,665 INFO o.s.b.l.DeferredLog [main] Located environment: name=post-service, profiles=[default], label=null, version=null, state=null
+2025-01-19 23:46:12,080 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-19 23:46:12,179 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 93 ms. Found 1 JPA repository interface.
+2025-01-19 23:46:12,336 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=a4f4f248-e1d3-37a5-9dad-4fd12a0a41d2
+2025-01-19 23:46:12,418 WARN o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-01-19 23:46:12,419 WARN o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-01-19 23:46:12,564 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port 8081 (http)
+2025-01-19 23:46:12,571 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8081"]
+2025-01-19 23:46:12,573 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2025-01-19 23:46:12,573 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-19 23:46:12,619 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2025-01-19 23:46:12,619 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 953 ms
+2025-01-19 23:46:12,726 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-19 23:46:12,766 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-19 23:46:12,790 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2025-01-19 23:46:13,005 INFO o.s.o.j.p.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-19 23:46:13,026 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-01-19 23:46:14,115 WARN o.h.e.j.s.SqlExceptionHelper [main] SQL Error: 0, SQLState: 08S01
+2025-01-19 23:46:14,116 ERROR o.h.e.j.s.SqlExceptionHelper [main] Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2025-01-19 23:46:14,116 WARN o.h.e.j.e.i.JdbcEnvironmentInitiator [main] HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:292)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:124)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:78)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at be.pxl.companypulse.PostServiceApplication.main(PostServiceApplication.java:12)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	... 35 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
+	... 48 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
+	... 51 common frames omitted
+2025-01-19 23:46:14,128 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-19 23:46:14,751 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-19 23:46:14,767 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-01-19 23:46:15,808 WARN o.h.e.j.s.SqlExceptionHelper [main] SQL Error: 0, SQLState: 08S01
+2025-01-19 23:46:15,808 ERROR o.h.e.j.s.SqlExceptionHelper [main] Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2025-01-19 23:46:15,812 ERROR o.s.o.j.AbstractEntityManagerFactoryBean [main] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+2025-01-19 23:46:15,813 WARN o.s.c.s.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+2025-01-19 23:46:15,814 INFO o.a.j.l.DirectJDKLog [main] Stopping service [Tomcat]
+2025-01-19 23:46:15,824 INFO o.s.b.a.l.ConditionEvaluationReportLogger [main] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-01-19 23:46:15,837 ERROR o.s.b.SpringApplication [main] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at be.pxl.companypulse.PostServiceApplication.main(PostServiceApplication.java:12)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 15 common frames omitted
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:240)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:119)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 19 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	... 40 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
+	... 53 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
+	... 56 common frames omitted
+2025-01-19 23:51:54,031 INFO o.s.b.StartupInfoLogger [main] Starting PostServiceApplication using Java 17.0.5 with PID 30608 (C:\Users\12201797\Documents\PXLTEMP\ProjectJava\project-BenteBussePXL\backend-java\CompanyPulse\post-service\target\classes started by 12201797 in C:\Users\12201797\Documents\PXLTEMP\ProjectJava\project-BenteBussePXL\backend-java\CompanyPulse)
+2025-01-19 23:51:54,032 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2025-01-19 23:51:54,059 INFO o.s.b.l.DeferredLog [main] Fetching config from server at : http://localhost:8087/
+2025-01-19 23:51:54,059 INFO o.s.b.l.DeferredLog [main] Located environment: name=post-service, profiles=[default], label=null, version=null, state=null
+2025-01-19 23:51:54,502 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-19 23:51:54,611 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 102 ms. Found 1 JPA repository interface.
+2025-01-19 23:51:54,774 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=a4f4f248-e1d3-37a5-9dad-4fd12a0a41d2
+2025-01-19 23:51:54,878 WARN o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-01-19 23:51:54,879 WARN o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-01-19 23:51:55,034 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port 8081 (http)
+2025-01-19 23:51:55,041 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8081"]
+2025-01-19 23:51:55,049 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2025-01-19 23:51:55,050 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-19 23:51:55,100 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2025-01-19 23:51:55,100 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1040 ms
+2025-01-19 23:51:55,212 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-19 23:51:55,253 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-19 23:51:55,280 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2025-01-19 23:51:55,550 INFO o.s.o.j.p.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-19 23:51:55,587 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-01-19 23:51:55,845 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@65a66a75
+2025-01-19 23:51:55,848 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-01-19 23:51:55,905 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-19 23:51:56,732 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-19 23:51:56,777 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-19 23:51:57,065 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-19 23:51:57,138 WARN o.s.b.a.s.s.UserDetailsServiceAutoConfiguration [main] 
+
+Using generated security password: 98806413-c1b4-45d4-9f28-2cdfb5908c83
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-01-19 23:51:57,158 INFO o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-01-19 23:51:58,786 INFO o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration [main] Eureka HTTP Client uses RestTemplate.
+2025-01-19 23:51:58,812 WARN o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [main] Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-01-19 23:51:58,873 INFO o.s.c.n.e.InstanceInfoFactory [main] Setting initial instance status as: STARTING
+2025-01-19 23:51:58,891 INFO c.n.d.DiscoveryClient [main] Initializing Eureka in region us-east-1
+2025-01-19 23:51:58,896 INFO c.n.d.s.r.a.ConfigClusterResolver [main] Resolving eureka endpoints via configuration
+2025-01-19 23:51:58,902 INFO c.n.d.DiscoveryClient [main] Disable delta property : false
+2025-01-19 23:51:58,902 INFO c.n.d.DiscoveryClient [main] Single vip registry refresh property : null
+2025-01-19 23:51:58,902 INFO c.n.d.DiscoveryClient [main] Force full registry fetch : false
+2025-01-19 23:51:58,902 INFO c.n.d.DiscoveryClient [main] Application is null : false
+2025-01-19 23:51:58,902 INFO c.n.d.DiscoveryClient [main] Registered Applications size is zero : true
+2025-01-19 23:51:58,902 INFO c.n.d.DiscoveryClient [main] Application version is -1: true
+2025-01-19 23:51:58,902 INFO c.n.d.DiscoveryClient [main] Getting all instance registry info from the eureka server
+2025-01-19 23:51:59,053 INFO c.n.d.DiscoveryClient [main] The response status is 200
+2025-01-19 23:51:59,054 INFO c.n.d.DiscoveryClient [main] Starting heartbeat executor: renew interval is: 30
+2025-01-19 23:51:59,055 INFO c.n.d.InstanceInfoReplicator [main] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-01-19 23:51:59,056 INFO c.n.d.DiscoveryClient [main] Discovery Client initialized at timestamp 1737327119056 with initial instances count: 0
+2025-01-19 23:51:59,059 INFO o.s.c.n.e.s.EurekaServiceRegistry [main] Registering application POST-SERVICE with eureka with status UP
+2025-01-19 23:51:59,060 INFO c.n.d.DiscoveryClient$6 [main] Saw local status change event StatusChangeEvent [timestamp=1737327119060, current=UP, previous=STARTING]
+2025-01-19 23:51:59,061 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8081"]
+2025-01-19 23:51:59,061 INFO c.n.d.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-%d] DiscoveryClient_POST-SERVICE/169.254.43.111:post-service:8081: registering service...
+2025-01-19 23:51:59,075 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port 8081 (http) with context path '/'
+2025-01-19 23:51:59,076 INFO o.s.c.n.e.s.EurekaAutoServiceRegistration [main] Updating port to 8081
+2025-01-19 23:51:59,087 INFO c.n.d.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-%d] DiscoveryClient_POST-SERVICE/169.254.43.111:post-service:8081 - registration status: 204
+2025-01-19 23:51:59,647 INFO o.s.b.StartupInfoLogger [main] Started PostServiceApplication in 6.848 seconds (process running for 7.367)
+2025-01-19 23:52:29,069 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] Disable delta property : false
+2025-01-19 23:52:29,069 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] Single vip registry refresh property : null
+2025-01-19 23:52:29,069 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] Force full registry fetch : false
+2025-01-19 23:52:29,069 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] Application is null : false
+2025-01-19 23:52:29,069 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] Registered Applications size is zero : true
+2025-01-19 23:52:29,069 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] Application version is -1: false
+2025-01-19 23:52:29,069 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] Getting all instance registry info from the eureka server
+2025-01-19 23:52:29,079 INFO c.n.d.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-%d] The response status is 200
+2025-01-19 23:56:58,915 INFO c.n.d.s.r.a.ConfigClusterResolver [AsyncResolver-bootstrap-executor-%d] Resolving eureka endpoints via configuration
+2025-01-19 23:59:44,299 INFO o.a.j.l.DirectJDKLog [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-19 23:59:44,299 INFO o.s.w.s.FrameworkServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2025-01-19 23:59:44,300 INFO o.s.w.s.FrameworkServlet [http-nio-8081-exec-1] Completed initialization in 1 ms
+2025-01-19 23:59:44,339 INFO b.p.c.s.PostService [http-nio-8081-exec-1] Entered method getPosts

@@ -16,7 +16,7 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  errorMessage : string = '';
+  error : string = '';
 
   constructor(
     private fb: FormBuilder, 
